@@ -11,11 +11,23 @@ const CarouselSection = () => {
   for (let i = 0; i < selectedCoins.length; i += size) {
     groupedSelectedCoins.push(selectedCoins.slice(i, i + size));
   }
+const customCarouselTheme = {
+  root: {
+    base: "relative h-full w-full",
+    leftControl: "hidden",
+    rightControl: "hidden",
+  },
+  indicators: {
+    wrapper: "hidden",
+  },
+};
+
+
 
 
   return (
     <div className="h-44 bg-transparent max-w-[1232px] m-auto px-10">
-      <Carousel>
+      <Carousel theme={customCarouselTheme}>
         {groupedSelectedCoins.map((coin, index) => (
           <div key={index} className="flex gap-[220px]">
             {coin.map((s) => (
